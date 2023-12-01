@@ -19,8 +19,7 @@ def index():
   input = (tweets['tweet'])
 
   message_text = [{"role":"system","content":"You are acting as an emotion classifier for some social media post. Take other emotions like fear, scared, happy, etc. into consideration, and only return back the emotion you detect."},
-                  {"role":"user","content":input},
-                  #{"role":"assistant","content":"Threathened"}
+                  {"role":"user","content":input},                  
   ]
 
   completion = openai.ChatCompletion.create(
