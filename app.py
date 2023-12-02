@@ -1,7 +1,8 @@
 import os
 import openai
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
+from werkzeug.exceptions import InternalServerError
 
 
 app = Flask(__name__)
@@ -10,7 +11,15 @@ app = Flask(__name__)
 openai.api_type = "azure"
 openai.api_base = "https://socialsent.openai.azure.com/"
 openai.api_version = "2023-07-01-preview"
-openai.api_key = "f15c5f543ed849a0a1e29e6b36d0fae2"
+openai.api_key = os.environ.get('OPENAI_API_KEY')
+
+@app.errorhandler(InternalServerError)
+def handle_internal_server_error(error):
+  
+    error_message = "The prompt was filtered due to triggering Azure OpenAI’s content filtering system. Reason: This prompt contains flagged contents"
+    response = jsonify({"error": error_message})
+    response.status_code = error.code
+    return response
 
 @app.route('/', methods=["POST", "GET"])
 def index():
@@ -35,6 +44,7 @@ def index():
   output = completion.choices[0].message.content
   return {"response": output}
   print(output)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
