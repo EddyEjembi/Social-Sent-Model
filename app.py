@@ -22,7 +22,7 @@ def handle_openai_error(error):
 
     traceback.print_exc()
 
-    response = jsonify({"error": "An error occurred with OpenAI.", "exact_error": exact_error_message})
+    response = jsonify({"Alarm🚩": "This prompt triggered OpenAI’s content filtering system.", "Reason": exact_error_message})
     response.status_code = 500
     return response
 
