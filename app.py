@@ -4,6 +4,8 @@ import openai
 from flask import Flask, request, jsonify
 from werkzeug.exceptions import InternalServerError
 
+from openai.error import InvalidRequestError
+import traceback
 
 app = Flask(__name__)
 
@@ -13,6 +15,18 @@ openai.api_base = "https://socialsent.openai.azure.com/"
 openai.api_version = "2023-07-01-preview"
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 
+@app.errorhandler(InvalidRequestError)
+def handle_openai_error(error):
+    # Get the exact error message
+    exact_error_message = str(error)
+
+    traceback.print_exc()
+
+    response = jsonify({"error": "An error occurred with OpenAI.", "exact_error": exact_error_message})
+    response.status_code = 500
+    return response
+
+"""
 @app.errorhandler(InternalServerError)
 def handle_internal_server_error(error):
   
@@ -20,6 +34,7 @@ def handle_internal_server_error(error):
     response = jsonify({"error": error_message})
     response.status_code = error.code
     return response
+"""
 
 @app.route('/', methods=["POST", "GET"])
 def index():
@@ -31,19 +46,22 @@ def index():
                   {"role":"user","content":input},                  
   ]
 
-  completion = openai.ChatCompletion.create(
-    engine="SocialMediaSent",
-    messages = message_text,
-    temperature=0.7,
-    max_tokens=800,
-    top_p=0.95,
-    frequency_penalty=0,
-    presence_penalty=0,
-    stop=None
-  )
-  output = completion.choices[0].message.content
-  return {"response": output}
-  print(output)
+  try:
+    completion = openai.ChatCompletion.create(
+      engine="SocialMediaSent",
+      messages = message_text,
+      temperature=0.7,
+      max_tokens=800,
+      top_p=0.95,
+      frequency_penalty=0,
+      presence_penalty=0,
+      stop=None
+    )
+    output = completion.choices[0].message.content
+    return {"response": output}
+    print(output)
+  except InvalidRequestError as e:
+    raise e
 
 
 if __name__ == '__main__':
