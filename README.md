@@ -1,4 +1,4 @@
-# Social-Sent-Model
+# Sentiment Analysis of Social Media Text
 The *Sentiment Analysis of Social Media Text* project takes a deep dive into the emotions expressed on social media. Today, people use social platforms to share ideas, thoughts, and a wide range of feelings. Traditional sentiment analysis tools don't always capture the subtle emotions like sadness, loneliness, fear, or threat. This research project aims to fix this by using special language models that can better understand the emotions in social media posts and capture a wider range of emotions.
 
 ## Key Features
@@ -18,8 +18,10 @@ The fine-tuned model returns the emotion of that particular tweet.
 
 
 A sample request is seen on the image below.
+
 ![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_I.png)
 
 > [!NOTE]
 > This project uses OpenAI’s content filtering system. It returns an issue when the prompt is flagged by OpenAI content monitoring system.
+> 
 > ![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_II.png)
