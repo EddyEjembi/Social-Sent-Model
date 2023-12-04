@@ -12,13 +12,14 @@ To access/use the  fine-tuned model, you make a request to the API located.
 The API requires just one Parameter:
 The tweet by a particular user (in text)
 
-**Project endpoint**: [https://social-sent-model.vercel.app/] (https://social-sent-model.vercel.app/)
+**Project endpoint**: https://social-sent-model.vercel.app/
 
 The fine-tuned model returns the emotion of that particular tweet.
 
 
 A sample request is seen on the image below.
+![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_I.png)
 
 > [!NOTE]
 > This project uses OpenAI’s content filtering system. It returns an issue when the prompt is flagged by OpenAI content monitoring system.
-> 
+> ![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_II.png)
