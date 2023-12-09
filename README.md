@@ -8,7 +8,7 @@ The *Sentiment Analysis of Social Media Text* project takes a deep dive into the
 - **Comprehensive Evaluation**: The research project incorporates thorough evaluation processes to measure the effectiveness of the fine-tuned models in capturing and classifying a wider range of emotional states in social media text.
 
 ## How to Use
-To access/use the  fine-tuned model, you make a request to the API located.
+To access/use the  fine-tuned model, you make a request to the API.
 The API requires just one Parameter:
 The tweet by a particular user (in text)
 
@@ -24,4 +24,4 @@ A sample request is seen on the image below.
 > [!NOTE]
 > This project uses OpenAI’s content filtering system. It returns an issue when the prompt is flagged by OpenAI content monitoring system.
 > 
-> ![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_II.png)
+![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_II.png)
