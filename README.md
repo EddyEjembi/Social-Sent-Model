@@ -20,9 +20,9 @@ The fine-tuned model returns the emotion of that particular tweet.
 
 A sample request is seen on the image below.
 
-![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_I.png)
+![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/assests/post_I.png)
 
 > [!NOTE]
 > This project uses OpenAI’s content filtering system. It returns an issue when the prompt is flagged by OpenAI content monitoring system.
 > 
-![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/post_II.png)
+![Screenshot of a request made.](https://github.com/EddyEjembi/Social-Sent-Model/blob/master/assests/post_II.png)
