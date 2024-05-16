@@ -13,6 +13,7 @@ The API requires just one Parameter:
 The tweet by a particular user (in text)
 
 **Project endpoint**: https://social-sent-model.vercel.app/
+**Project Paper**: [Sentiment Analysis of Social Media Text: Leveraging Fine-Tuned Language Models to Unveil a Wider Spectrum of Emotions](https://www.academia.edu/117193772/Sentiment_Analysis_of_Social_Media_Text_Leveraging_Fine_Tuned_Language_Models_to_Unveil_a_Wider_Spectrum_of_Emotions)
 
 The fine-tuned model returns the emotion of that particular tweet.
 
